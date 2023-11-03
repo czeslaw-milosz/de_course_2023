@@ -27,6 +27,8 @@ To run the whole process end to end, just use the driver script:
 ```
 This creates a temporary Python environment, installs the required packages, sets up the services and runs the pipeline. The resulting file can be viewed (after loggin in with credentials from `.env`) on MinIO available at `http://localhost:9090`. To shut down and remove the containers, run `make teardown`.
 
+The script that actually does the processing is `run_pipeline.py` available in the main directory. The API code is located under `api`.
+
 Apart from this, there is a Makefile that follows the following options:
  - `make setup` - sets up MinIO, FastAPI and Pulsar containers.
  - `make teardown` - opposite of setup.

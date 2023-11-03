@@ -1,6 +1,9 @@
 # Any generated .json
 *.json
 
+# Temporary dirs
+tmp/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

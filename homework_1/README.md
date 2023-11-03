@@ -8,7 +8,7 @@ This repository contains a simple mock data pipeline. The data are JSON records 
     "user_id": "6e0e1f98-9e7e-4746-9abe-21ef9f95664d",
     "comment_id": 326524,
     "name": "John Koehler",
-    "age": 73,
+    "timestamp": "2022-12-03T13:26:50",
     "content": "zCRJhYXwHuwPFGzJxrvyrOjAasQKzhENLLJaZkYeYFPKgcQLLudVvdnZNVXITnOBmebwKLhaGMWNCnoPsTHQJdXvATGJQTCLLIva"
 }
 ```

@@ -6,13 +6,13 @@ WORKDIR /code
 
 ENV PYTHONPATH=/app
 
-# Copy the requirements file
+# Copy the requirements and environment file
 COPY ./requirements.txt /code/requirements.txt
 
-COPY ../.env /code/.env
+COPY ./.env /code/.env
 
 # Install the requirements
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN pip install -r /code/requirements.txt
 
 # Copy the application to run folder
 COPY ./app /code/app

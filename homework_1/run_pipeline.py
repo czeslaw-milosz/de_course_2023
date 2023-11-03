@@ -1,5 +1,6 @@
 import itertools
 import logging
+import time
 import os
 
 import dotenv
@@ -40,6 +41,7 @@ if __name__ == "__main__":
     for record in tqdm(records):
         producer.send_async(ujson.dumps(record).encode("utf-8"), lambda res, msg: None)
     logging.info("Done.")
+    time.sleep(6)
 
     logging.info("Retrieving records from pulsar queue...")
     client = pulsar.Client(os.getenv("PULSAR_URL"))
@@ -48,7 +50,6 @@ if __name__ == "__main__":
     counter = 0
     while True:
         msg = consumer.receive()
-        logging.info(f"len(msg): {len(msg.data())}")
         try:
             records.append(ujson.loads(msg.data().decode("utf-8")))
             consumer.acknowledge(msg)

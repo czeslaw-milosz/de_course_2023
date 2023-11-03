@@ -20,18 +20,28 @@ A Python script gets 10 batches of records from the API (so total of 20 000 reco
 MinIO, Pulsar and FastAPI are run locally in separate docker containers. The whole pipeline can be configured by changing the `.env` file.
 
 ## 2. Setup and execution
-
-To run the whole process end to end, just use the driver script:
-```{bash}
-./run.sh
+To setup the Python execution environment, run (from the main directory `homework_1`):
+```bash
+python3.10 -m venv tmp && source ./tmp/bin/activate && pip install -r requirements.txt;
 ```
-This creates a temporary Python environment, installs the required packages, sets up the services and runs the pipeline. The resulting file can be viewed (after loggin in with credentials from `.env`) on MinIO available at `http://localhost:9090`. To shut down and remove the containers, run `make teardown`.
+
+Then, set up the containerized MinIO, Pulsar and FastAPI app:
+```bash
+make setup
+```
+
+Finally, run the whole end to end process:
+```bash
+python run_pipeline.py
+```
+
+The resulting file can be viewed (after loggin in with credentials from `.env`) on MinIO available at `http://localhost:9090`. To shut down and remove the containers, run `make teardown`.
 
 The script that actually does the processing is `run_pipeline.py` available in the main directory. The API code is located under `api`.
 
-Apart from this, there is a Makefile that follows the following options:
+Apart from this, there is a Makefile that defines the following helper commands:
  - `make setup` - sets up MinIO, FastAPI and Pulsar containers.
- - `make teardown` - opposite of setup.
+ - `make teardown` - opposite of `setup`.
  - `make clean` - cleans python cache.
  - `make app` - builds just the FastAPI app.
  - `make minio` - sets up just the MinIO instance.

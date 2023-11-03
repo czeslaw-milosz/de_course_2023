@@ -1,0 +1,6 @@
+minio==7.1.17
+pulsar_client[all]==3.3.0
+python-dotenv==1.0.0
+requests==2.31.0
+tqdm==4.66.1
+ujson==5.8.0

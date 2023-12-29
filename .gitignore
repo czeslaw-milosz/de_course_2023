@@ -1,6 +1,8 @@
 # Any generated .json
 *.json
 
+# vscode configs
+.vscode/
 # Temporary dirs
 tmp/
 hw*/
